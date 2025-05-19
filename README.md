@@ -1,12 +1,12 @@
 # ConnectDB - Trợ lý truy vấn cơ sở dữ liệu bằng ngôn ngữ tự nhiên
 
-![Banner ConnectDB](đường-dẫn-đến-hình-ảnh-banner)
+![Banner ConnectDB](https://drive.google.com/file/d/1uQTV5snHj3ogjy7RCWGYKeRYc6AdBOh5/view)
 
 ## Giới thiệu
 
 ConnectDB là một công cụ sử dụng AI để chuyển đổi câu hỏi bằng ngôn ngữ tự nhiên thành truy vấn SQL. Cho phép người dùng tương tác với cơ sở dữ liệu MySQL/MariaDB mà không cần biết nhiều về ngôn ngữ truy vấn SQL.
 
-![Giao diện chính](đường-dẫn-đến-hình-ảnh-giao-diện)
+![Giao diện chính](https://drive.google.com/file/d/1a2NGSA3NwLE2DQ0QAVRD-RzR0Cyv9sGL/view)
 
 ### Tính năng chính
 
