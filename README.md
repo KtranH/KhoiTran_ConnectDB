@@ -73,7 +73,7 @@ python main.py
 3. Hệ thống sẽ tự động tạo truy vấn SQL phù hợp và thực thi nó
 4. Kết quả truy vấn sẽ được hiển thị dưới dạng bảng
 
-![Ví dụ truy vấn](đường-dẫn-đến-hình-ảnh-ví-dụ)
+![Ví dụ truy vấn](https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/500226969_711488811265795_2256049907301810830_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YcxE-SX8JFAQ7kNvwFn4U7v&_nc_oc=AdkwTij-hKGibjO56hEPvUR4s6OllKRb7QiWMPXomisF6DqnPANxzJ640Hq1n9FTp8_Mxs_zO1fz7txECPf7DYY2&_nc_zt=23&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=J4JBaCNBsicVDU5I0ZcFMg&oh=00_AfII5qjFC-ZEqbL6fkvPXj2pjeV6wMKCKHJE_SwrAfnxbA&oe=6830AF7E)
 
 ### Thoát chương trình
 
@@ -113,10 +113,6 @@ Nếu bạn muốn sử dụng một API LLM khác, hãy chỉnh sửa hàm `gen
 
 Nếu bạn muốn đóng góp cho dự án, vui lòng fork repository và tạo Pull Request.
 
-## Giấy phép
-
-Dự án này được phân phối dưới giấy phép MIT. Xem file `LICENSE` để biết thêm chi tiết.
-
 ## Liên hệ
 
-Nếu có câu hỏi hoặc góp ý, vui lòng liên hệ qua [email/github/website]. 
+Nếu có câu hỏi hoặc góp ý, vui lòng liên hệ qua [hoangkhoi230@gmail.com]. 
