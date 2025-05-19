@@ -40,7 +40,7 @@ pip install mysql-connector-python pandas tabulate requests
 ### Bước 3: Cài đặt và chạy LLM Studio (hoặc dịch vụ LLM khác)
 
 Để sử dụng đầy đủ chức năng, bạn cần:
-1. Cài đặt [LLM Studio](https://github.com/LLM-Studio/llm-studio) hoặc sử dụng dịch vụ API tương tự
+1. Cài đặt [LLM Studio](https://lmstudio.ai/) hoặc sử dụng dịch vụ API tương tự
 2. Tải mô hình Gemma-3-12B-IT hoặc mô hình tương đương
 3. Chạy API local trên cổng 1234 (có thể thay đổi trong mã nguồn)
 
