@@ -9,6 +9,8 @@ Dự án này kết nối LM Studio với cơ sở dữ liệu MySQL và cung c�
 - **Truy vấn thông minh**: Phân biệt giữa câu hỏi liên quan đến cơ sở dữ liệu và câu hỏi liên quan đến tài liệu
 - **Hiển thị kết quả đẹp mắt**: Hiển thị kết quả dưới dạng bảng có định dạng đẹp
 
+![Ví dụ chức năng](https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/499861063_713027097778633_9008190704226737270_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=kbcNWi2A3toQ7kNvwHPN3rS&_nc_oc=AdkI_XUGP01qDL8ECkXYM0yvVEcBasFla0hmLlvrorqR1F6-08pUVhNR1fDUb7jjL-QVlfdSzMQPmfyXDcS_AV3m&_nc_zt=23&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=rKj5Gp6Ekf2AXS0lUSsVrA&oh=00_AfJhjSW8KIFL21S6w5wZFQe0b6UADWxRwrgmelCsCWj12w&oe=68337770)
+
 ## Cài đặt
 
 1. Cài đặt các thư viện cần thiết:
