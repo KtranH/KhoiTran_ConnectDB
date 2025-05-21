@@ -1,7 +1,26 @@
 import requests
 import re
+from document_processor import DocumentProcessor
+from document_query import process_document_query
 
 def generate_sql_local(question, schema_info=None):
+    # Kiểm tra xem câu hỏi có liên quan đến tài liệu không
+    doc_keywords = ["quy định", "quy chế", "nội quy", "chính sách", "hướng dẫn", 
+                   "đào tạo", "bảo mật", "làm việc", "nhân sự", "văn bản"]
+    
+    is_doc_related = any(keyword.lower() in question.lower() for keyword in doc_keywords)
+    
+    if is_doc_related:
+        # Xử lý câu hỏi về tài liệu bằng mô-đun mới
+        answer = process_document_query(question)
+        
+        if answer:
+            # Tạo câu truy vấn giả để hiển thị kết quả từ tài liệu
+            sql_like_response = "SELECT * FROM document_results WHERE content = '"
+            sql_like_response += answer.replace("'", "''")  # Escape dấu nháy đơn trong SQL
+            sql_like_response += "';"
+            return sql_like_response
+    
     # Tạo thông tin về schema để cung cấp cho LLM
     schema_context = ""
     if schema_info:
@@ -111,3 +130,20 @@ def is_valid_sql(sql_query):
             return False
     
     return True
+
+def get_document_response(question, doc_results):
+    """Tạo câu trả lời dựa vào kết quả tìm kiếm từ tài liệu"""
+    # Format kết quả từ tài liệu thành câu truy vấn giả SQL để hiển thị
+    sql_like_response = "SELECT * FROM document_results WHERE content = '"
+    
+    # Thêm nội dung tài liệu vào câu trả lời
+    content_parts = []
+    for doc_name, sections in doc_results.items():
+        for section in sections:
+            clean_section = section.replace("'", "''")  # Escape dấu nháy đơn trong SQL
+            content_parts.append(f"--- Từ {doc_name} ---\n{clean_section}")
+    
+    sql_like_response += " | ".join(content_parts)
+    sql_like_response += "';"
+    
+    return sql_like_response

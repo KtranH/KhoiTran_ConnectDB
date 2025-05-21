@@ -2,6 +2,7 @@ import mysql.connector
 import pandas as pd
 from tabulate import tabulate
 from generate_sql_local import generate_sql_local
+from document_processor import DocumentProcessor
 
 # Thông tin kết nối MySQL
 config = {
@@ -70,6 +71,30 @@ def display_results(results, column_names=None):
     else:
         print("\n⚠️ Không có kết quả nào được trả về.")
 
+def display_document_results(sql_query):
+    """Hiển thị kết quả truy vấn từ tài liệu"""
+    # Kiểm tra xem có phải là kết quả từ tài liệu không
+    if sql_query.startswith("SELECT * FROM document_results WHERE content = '"):
+        # Trích xuất nội dung từ câu truy vấn giả
+        content_start = sql_query.find("'") + 1
+        content_end = sql_query.rfind("'")
+        content = sql_query[content_start:content_end]
+        
+        print("\n=== KẾT QUẢ TỪ TÀI LIỆU ===\n")
+        print(content)
+        return True
+    
+    return False
+
+def print_document_info():
+    """In thông tin về các tài liệu có sẵn"""
+    doc_processor = DocumentProcessor()
+    doc_names = doc_processor.get_document_names()
+    
+    print("\n=== THÔNG TIN TÀI LIỆU CÓ SẴN ===")
+    for i, name in enumerate(doc_names, 1):
+        print(f"{i}. {name}")
+
 def main():
     try:
         # Tạo kết nối đến MySQL
@@ -82,6 +107,9 @@ def main():
             schema_info = get_table_schema(connection)
             print_schema_info(schema_info)
             
+            # In thông tin về tài liệu có sẵn
+            print_document_info()
+            
             while True:
                 print("\n" + "-"*60)
                 user_question = input("Nhập câu hỏi của bạn (hoặc 'exit' để thoát): ")
@@ -90,8 +118,13 @@ def main():
                     break
                 
                 # Tạo truy vấn SQL từ câu hỏi bằng LLM
-                print("\nĐang tạo truy vấn SQL...")
+                print("\nĐang xử lý câu hỏi...")
                 sql_query = generate_sql_local(user_question, schema_info)
+                
+                # Kiểm tra và hiển thị kết quả từ tài liệu nếu có
+                if display_document_results(sql_query):
+                    continue
+                    
                 print(f"\nTruy vấn SQL được tạo: {sql_query}")
                 
                 # Thực thi truy vấn

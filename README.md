@@ -1,48 +1,70 @@
-# ConnectDB - Trợ lý truy vấn cơ sở dữ liệu bằng ngôn ngữ tự nhiên
+# ConnectDB: Kết nối LM Studio với MySQL và truy xuất thông tin từ tài liệu
 
-![Banner ConnectDB](https://scontent.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/499525148_711488807932462_1147746514714061202_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=6s-139BvcRgQ7kNvwFXzDO7&_nc_oc=Adm7YbGRBT8dTogMqrltUmCDleaDg4iSxtLPp_Xgf_R74XgwTkIAuq_neW5wI_AQxfyjhhFv-88183Zx74IBCujh&_nc_zt=23&_nc_ht=scontent.fsgn5-9.fna&_nc_gid=rQrfSzXBlU0gmfmQYIpyEA&oh=00_AfJ2HEBtVRJ2b89FEQUJnQr8XHP3GkcSUcAZjPrwBLctcA&oe=683093FE)
+Dự án này kết nối LM Studio với cơ sở dữ liệu MySQL và cung cấp khả năng truy xuất thông tin từ các tài liệu văn bản. Nó cho phép người dùng đặt câu hỏi bằng tiếng Việt tự nhiên và nhận về kết quả từ cả cơ sở dữ liệu hoặc tài liệu văn bản.
 
-## Giới thiệu
+## Tính năng chính
 
-ConnectDB là một công cụ sử dụng AI để chuyển đổi câu hỏi bằng ngôn ngữ tự nhiên thành truy vấn SQL. Cho phép người dùng tương tác với cơ sở dữ liệu MySQL/MariaDB mà không cần biết nhiều về ngôn ngữ truy vấn SQL.
+- **Kết nối với MySQL**: Tạo truy vấn SQL dựa trên câu hỏi tiếng Việt tự nhiên
+- **Truy xuất thông tin từ tài liệu**: Tìm kiếm và truy xuất thông tin từ các tài liệu văn bản
+- **Truy vấn thông minh**: Phân biệt giữa câu hỏi liên quan đến cơ sở dữ liệu và câu hỏi liên quan đến tài liệu
+- **Hiển thị kết quả đẹp mắt**: Hiển thị kết quả dưới dạng bảng có định dạng đẹp
 
-![Giao diện chính](https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/500226969_711488811265795_2256049907301810830_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YcxE-SX8JFAQ7kNvwFn4U7v&_nc_oc=AdkwTij-hKGibjO56hEPvUR4s6OllKRb7QiWMPXomisF6DqnPANxzJ640Hq1n9FTp8_Mxs_zO1fz7txECPf7DYY2&_nc_zt=23&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=J4JBaCNBsicVDU5I0ZcFMg&oh=00_AfII5qjFC-ZEqbL6fkvPXj2pjeV6wMKCKHJE_SwrAfnxbA&oe=6830AF7E)
+## Cài đặt
 
-### Tính năng chính
+1. Cài đặt các thư viện cần thiết:
+```
+pip install mysql-connector-python pandas tabulate
+```
 
-- Tự động kết nối đến cơ sở dữ liệu MySQL/MariaDB
-- Phân tích cấu trúc cơ sở dữ liệu (schema) để hiểu dữ liệu
-- Chuyển đổi câu hỏi tiếng Việt thành truy vấn SQL chính xác
-- Thực thi truy vấn và hiển thị kết quả dưới dạng bảng dễ đọc
-- Hỗ trợ nhiều loại truy vấn: SELECT, INSERT, UPDATE, DELETE, v.v.
+2. Cài đặt và cấu hình LM Studio (http://lmstudio.ai)
+   - Tải và cài đặt LM Studio
+   - Tải model (Gemma-3-12B-it hoặc tương tự)
+   - Khởi động máy chủ API ở cổng 1234
+
+3. Cấu hình kết nối MySQL:
+   - Chỉnh sửa thông tin kết nối trong file main.py
+
+## Cách sử dụng
+
+1. Chạy chương trình:
+```
+python main.py
+```
+
+2. Chương trình sẽ hiển thị:
+   - Thông tin cấu trúc cơ sở dữ liệu
+   - Danh sách các tài liệu có sẵn
+
+3. Nhập câu hỏi của bạn, ví dụ:
+   - "Hiển thị danh sách sinh viên ở khoa CNTT" (truy vấn cơ sở dữ liệu)
+   - "Quy định về bảo mật thông tin là gì?" (truy vấn tài liệu)
+   - "Thời gian đào tạo nhân viên mới là bao lâu?" (truy vấn tài liệu)
+
+## Cấu trúc dự án
+
+- `main.py`: Chương trình chính, xử lý tương tác người dùng và hiển thị kết quả
+- `generate_sql_local.py`: Tạo truy vấn SQL từ câu hỏi tiếng Việt
+- `document_processor.py`: Xử lý đọc và tìm kiếm trong tài liệu văn bản
+- `document_query.py`: Xử lý truy vấn tài liệu bằng LLM
+- `docs/`: Thư mục chứa các tài liệu văn bản
+
+## Thêm tài liệu mới
+
+Để thêm tài liệu mới, chỉ cần thêm file .txt vào thư mục `docs/`. Định dạng khuyến nghị:
+- Tên file: sử dụng gạch dưới để ngăn cách các từ (ví dụ: `quy_dinh_dao_tao.txt`)
+- Sử dụng markdown cho định dạng (tiêu đề, danh sách, vv)
+
+## Lưu ý
+
+- Hệ thống phân biệt câu hỏi liên quan đến cơ sở dữ liệu và tài liệu dựa trên từ khóa
+- Khi câu hỏi liên quan đến tài liệu, hệ thống sẽ tìm kiếm trong tất cả các tài liệu
+- Có thể chỉ định tên tài liệu trong câu hỏi để tìm kiếm trong một tài liệu cụ thể
 
 ## Yêu cầu hệ thống
 
 - Python 3.8 trở lên
 - Máy chủ MySQL/MariaDB
 - LLM Studio local hoặc API khác để tạo truy vấn SQL
-
-## Cài đặt
-
-### Bước 1: Clone repository
-
-```bash
-git clone https://github.com/your-username/ConnectDB.git
-cd ConnectDB
-```
-
-### Bước 2: Cài đặt các thư viện phụ thuộc
-
-```bash
-pip install mysql-connector-python pandas tabulate requests
-```
-
-### Bước 3: Cài đặt và chạy LLM Studio (hoặc dịch vụ LLM khác)
-
-Để sử dụng đầy đủ chức năng, bạn cần:
-1. Cài đặt [LLM Studio](https://lmstudio.ai/) hoặc sử dụng dịch vụ API tương tự
-2. Tải mô hình Gemma-3-12B-IT hoặc mô hình tương đương
-3. Chạy API local trên cổng 1234 (có thể thay đổi trong mã nguồn)
 
 ## Cấu hình
 
