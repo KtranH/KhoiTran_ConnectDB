@@ -9,7 +9,7 @@ Dự án này kết nối LM Studio với cơ sở dữ liệu MySQL và cung c�
 - **Truy vấn thông minh**: Phân biệt giữa câu hỏi liên quan đến cơ sở dữ liệu và câu hỏi liên quan đến tài liệu
 - **Hiển thị kết quả đẹp mắt**: Hiển thị kết quả dưới dạng bảng có định dạng đẹp
 
-![Ví dụ chức năng](https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/499861063_713027097778633_9008190704226737270_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=kbcNWi2A3toQ7kNvwHPN3rS&_nc_oc=AdkI_XUGP01qDL8ECkXYM0yvVEcBasFla0hmLlvrorqR1F6-08pUVhNR1fDUb7jjL-QVlfdSzMQPmfyXDcS_AV3m&_nc_zt=23&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=rKj5Gp6Ekf2AXS0lUSsVrA&oh=00_AfJhjSW8KIFL21S6w5wZFQe0b6UADWxRwrgmelCsCWj12w&oe=68337770)
+![Ví dụ chức năng](https://pub-0ec2d0f968bd484492ed9495327a3698.r2.dev/ChatBot_NoRAG/Screenshot%202025-05-21%20183940.png)
 
 ## Cài đặt
 
@@ -97,7 +97,7 @@ python main.py
 3. Hệ thống sẽ tự động tạo truy vấn SQL phù hợp và thực thi nó
 4. Kết quả truy vấn sẽ được hiển thị dưới dạng bảng
 
-![Ví dụ truy vấn](https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/500226969_711488811265795_2256049907301810830_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YcxE-SX8JFAQ7kNvwFn4U7v&_nc_oc=AdkwTij-hKGibjO56hEPvUR4s6OllKRb7QiWMPXomisF6DqnPANxzJ640Hq1n9FTp8_Mxs_zO1fz7txECPf7DYY2&_nc_zt=23&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=J4JBaCNBsicVDU5I0ZcFMg&oh=00_AfII5qjFC-ZEqbL6fkvPXj2pjeV6wMKCKHJE_SwrAfnxbA&oe=6830AF7E)
+![Ví dụ truy vấn](https://pub-0ec2d0f968bd484492ed9495327a3698.r2.dev/ChatBot_NoRAG/Screenshot%202025-05-19%20131226.png)
 
 ### Thoát chương trình
 
